@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cliente, Producto, Pedido
+from .models import Cliente, Producto, Pedido, Blog, Mensaje
 
 class ClienteForm(forms.ModelForm):
     class Meta:
@@ -19,3 +19,17 @@ class PedidoForm(forms.ModelForm):
 class BuscarClienteForm(forms.Form):
     nombre = forms.CharField(max_length=100, required=False)
     correo = forms.EmailField(required=False)
+    
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+
+class MensajeForm(forms.ModelForm):
+    class Meta:
+        model = Mensaje
+        fields = ['remitente', 'destinatario', 'cuerpo']
+
+    
+    

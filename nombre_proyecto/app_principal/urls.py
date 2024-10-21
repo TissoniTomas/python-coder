@@ -1,9 +1,15 @@
 from django.urls import path
-from . import views
+from .views import (
+    about_view, blog_list_view, blog_detail_view,
+    signup_view, profile_view, mensaje_view, mensajes_list_view
+)
 
 urlpatterns = [
-    path('crear-cliente/', views.crear_cliente, name='crear_cliente'),
-    path('crear-producto/', views.crear_producto, name='crear_producto'),
-    path('crear-pedido/', views.crear_pedido, name='crear_pedido'),
-    path('buscar-cliente/', views.buscar_cliente, name='buscar_cliente'),
+    path('about/', about_view, name='about'),
+    path('pages/', blog_list_view, name='blog_list'),
+    path('pages/<int:pageId>/', blog_detail_view, name='blog_detail'),
+    path('accounts/signup/', signup_view, name='signup'),
+    path('accounts/profile/', profile_view, name='profile'),
+    path('messages/', mensajes_list_view, name='mensajes'),
+    path('messages/new/', mensaje_view, name='nuevo_mensaje'),
 ]
